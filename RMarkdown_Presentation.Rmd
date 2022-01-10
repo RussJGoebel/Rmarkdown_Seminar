@@ -1,0 +1,29 @@
+---
+title: "R Markdown"
+subtitle: ""
+author: "Russell Goebel"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+    css: [default, metropolis, metropolis-fonts]
+---
+A Slide
+
+
+---
+
+
+
+a
+
+
+
+
+
+
+---
+
