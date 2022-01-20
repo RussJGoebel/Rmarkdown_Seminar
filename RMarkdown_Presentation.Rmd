@@ -90,6 +90,7 @@ background-size: contain
 
 The Art of Computer Programming
 TeX
+Leslie Lamport
 
 ---
 
@@ -307,7 +308,17 @@ background-size: contain
 ---
 class: inverse, center, middle
 
-# R Markdown 
+# Introduction to R Markdown 
+
+You will want R and R Studio.
+
+---
+# Installation
+
+You will want to install the **rmarkdown** package in R using `install.packages('rmarkdown')` in R.
+
+If you want to generate PDF output, you will need to install LaTeX. One recommendation is to install **TinyTeX** using `install.packages('tinytex')`.
+
 
 ---
 # Creating an R Markdown Document
@@ -525,14 +536,7 @@ Tailoring to a single output format (like html or pdf) may be at the expense of 
 
 (https://bookdown.org/yihui/rmarkdown-cookbook/latex-output.html)
 
----
-# knitr::kable tip
 
-If you are generating a table using data in R, `knitr::kable` can be used in the console to print LaTeX code for that table!
-
-```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
-knitr::include_graphics("./images/kable_trick.PNG")
-```
 
 
 
@@ -616,6 +620,26 @@ More information here: https://bookdown.org/yihui/rmarkdown-cookbook/child-docum
 # Options can contain expressions
 
 ![](./images/conditional.PNG)
+
+---
+# knitr::kable()
+
+Place this function in an **R chunk** to render a table programatically:
+
+```{r}
+my_data_frame = data.frame(A = 1:5, B = 6:10)
+knitr::kable(my_data_frame) # makes a table
+```
+
+
+---
+# knitr::kable tip
+
+If you are generating a table using data in R, `knitr::kable` can be used in the console to print LaTeX code for that table!
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("./images/kable_trick.PNG")
+```
 
 ---
 
@@ -793,8 +817,8 @@ You can most easily reference **chunks** and **sections**.
 
 **Syntax:** 
 
-* Figure `\@ref(fig:chunk-name))`
-* Table `\@ref(tab:chunk-name))` 
+* Figure `\@ref(fig:chunk-name)`
+* Table `\@ref(tab:chunk-name)` 
 * Section `\@ref(slug)`
 
 .pull-left[

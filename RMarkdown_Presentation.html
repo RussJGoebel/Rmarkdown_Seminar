@@ -4,7 +4,7 @@
     <title>R Markdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="Russell Goebel" />
-    <meta name="date" content="2022-01-19" />
+    <meta name="date" content="2022-01-20" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 # R Markdown
 ## Improving reproducibility using literate programming
 ### Russell Goebel
-### 2022-01-19
+### 2022-01-20
 
 ---
 
@@ -98,6 +98,7 @@ background-size: contain
 
 The Art of Computer Programming
 TeX
+Leslie Lamport
 
 ---
 
@@ -112,8 +113,8 @@ TeX
 
 --
 
-<div id="htmlwidget-e2ab971d347da03e5a94" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e2ab971d347da03e5a94">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"Literate Program\"]\n      tab2 [label = \"Documentation\"]\n      tab3 [label = \"Source Code\"]\n\n\n      # edge definitions with the node IDs\n      tab1 -> tab2\n      tab1 -> tab3\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1337b0e133a0879770f7" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1337b0e133a0879770f7">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"Literate Program\"]\n      tab2 [label = \"Documentation\"]\n      tab3 [label = \"Source Code\"]\n\n\n      # edge definitions with the node IDs\n      tab1 -> tab2\n      tab1 -> tab3\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 
 
@@ -285,7 +286,17 @@ background-size: contain
 ---
 class: inverse, center, middle
 
-# R Markdown 
+# Introduction to R Markdown 
+
+You will want R and R Studio.
+
+---
+# Installation
+
+You will want to install the **rmarkdown** package in R using `install.packages('rmarkdown')` in R.
+
+If you want to generate PDF output, you will need to install LaTeX. One recommendation is to install **TinyTeX** using `install.packages('tinytex')`.
+
 
 ---
 # Creating an R Markdown Document
@@ -489,12 +500,7 @@ Tailoring to a single output format (like html or pdf) may be at the expense of 
 
 (https://bookdown.org/yihui/rmarkdown-cookbook/latex-output.html)
 
----
-# knitr::kable tip
 
-If you are generating a table using data in R, `knitr::kable` can be used in the console to print LaTeX code for that table!
-
-&lt;img src="./images/kable_trick.PNG" width="70%" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -566,6 +572,35 @@ More information here: https://bookdown.org/yihui/rmarkdown-cookbook/child-docum
 # Options can contain expressions
 
 ![](./images/conditional.PNG)
+
+---
+# knitr::kable()
+
+Place this function in an **R chunk** to render a table programatically:
+
+
+```r
+my_data_frame = data.frame(A = 1:5, B = 6:10)
+knitr::kable(my_data_frame) # makes a table
+```
+
+
+
+|  A|  B|
+|--:|--:|
+|  1|  6|
+|  2|  7|
+|  3|  8|
+|  4|  9|
+|  5| 10|
+
+
+---
+# knitr::kable tip
+
+If you are generating a table using data in R, `knitr::kable` can be used in the console to print LaTeX code for that table!
+
+&lt;img src="./images/kable_trick.PNG" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -734,8 +769,8 @@ You can most easily reference **chunks** and **sections**.
 
 **Syntax:** 
 
-* Figure `\@ref(fig:chunk-name))`
-* Table `\@ref(tab:chunk-name))` 
+* Figure `\@ref(fig:chunk-name)`
+* Table `\@ref(tab:chunk-name)` 
 * Section `\@ref(slug)`
 
 .pull-left[
