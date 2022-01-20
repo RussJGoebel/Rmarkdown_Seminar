@@ -1,17 +1,31 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R Markdown</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Russell Goebel" />
+    <meta name="date" content="2022-01-20" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+    <script src="libs/viz-1.8.2/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R Markdown
+## Improving reproducibility using literate programming
+### Russell Goebel
+### 2022-01-20
+
 ---
-title: "R Markdown"
-subtitle: "Improving reproducibility using literate programming"
-author: "Russell Goebel"
-date: "`r Sys.Date()`"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      countIncrementalSlides: false
-    css: [default, metropolis, metropolis-fonts,style.css]
-  bibliography: bibliography.bib
----
+
 class: inverse, middle
 
 # Outline
@@ -44,9 +58,7 @@ class: inverse, middle
 
 
 
-```{r, echo = FALSE}
-knitr::include_graphics("./images/nature_ecology_paper.PNG")
-```
+&lt;img src="./images/nature_ecology_paper.PNG" width="1208" /&gt;
 
 ???
 
@@ -60,17 +72,13 @@ knitr::include_graphics("./images/nature_ecology_paper.PNG")
 # Why use R Markdown?
 
 
-```{r, echo = FALSE, out.width = "80%"}
-knitr::include_graphics("./images/nature_ecology_graphic.PNG")
-```
+&lt;img src="./images/nature_ecology_graphic.PNG" width="80%" /&gt;
 
 ---
 
 # Why use R Markdown?
 
-```{r, echo = FALSE}
-knitr::include_graphics("./images/nature_ecology_Rmarkdown.PNG")
-```
+&lt;img src="./images/nature_ecology_Rmarkdown.PNG" width="844" /&gt;
 
 ---
 class: inverse, center, middle
@@ -104,28 +112,8 @@ TeX
 
 --
 
-```{r, echo = FALSE, warning = FALSE}
-# install.packages("DiagrammeR")
-library(DiagrammeR)
-grViz("digraph flowchart {
-      # node definitions with substituted label text
-      node [fontname = Helvetica, shape = rectangle]        
-      tab1 [label = '@@1']
-      tab2 [label = '@@2']
-      tab3 [label = '@@3']
-
-
-      # edge definitions with the node IDs
-      tab1 -> tab2
-      tab1 -> tab3
-      }
-
-      [1]: 'Literate Program'
-      [2]: 'Documentation'
-      [3]: 'Source Code'
-
-      ")
-```
+<div id="htmlwidget-18174d3e54428d5be320" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-18174d3e54428d5be320">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"Literate Program\"]\n      tab2 [label = \"Documentation\"]\n      tab3 [label = \"Source Code\"]\n\n\n      # edge definitions with the node IDs\n      tab1 -> tab2\n      tab1 -> tab3\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 
 
@@ -140,11 +128,11 @@ grViz("digraph flowchart {
 
 --
 
-$$\\[1in]$$
+`$$\\[1in]$$`
 
-<big>Literate programs are "psychologically <b>arranged for comprehension</b> by humans".
+&lt;big&gt;Literate programs are "psychologically &lt;b&gt;arranged for comprehension&lt;/b&gt; by humans".
 
-They "provide significant incentives for programmers to <b>document</b> their understanding." 
+They "provide significant incentives for programmers to &lt;b&gt;document&lt;/b&gt; their understanding." 
 
 --
 
@@ -154,21 +142,15 @@ They "provide significant incentives for programmers to <b>document</b> their un
 ---
 # Early example: Donald Knuth's WEB
 
-```{r, echo = FALSE}
-knitr::include_graphics("./images/adventure_intro.PNG")
-```
+&lt;img src="./images/adventure_intro.PNG" width="1144" /&gt;
 
 ---
 # Early example: Donald Knuth's WEB
-```{r, echo = FALSE}
-knitr::include_graphics("./images/adventure_code.PNG")
-```
+&lt;img src="./images/adventure_code.PNG" width="1196" /&gt;
 
 ---
 # Early example: Donald Knuth's WEB
-```{r, echo = FALSE}
-knitr::include_graphics("./images/adventure_code.PNG")
-```
+&lt;img src="./images/adventure_code.PNG" width="1196" /&gt;
 
 
 ---
@@ -182,7 +164,7 @@ class: inverse, center, middle
 ---
 # Geneology of R Markdown
 
-$$\\[1.5in]$$
+`$$\\[1.5in]$$`
 
 
 * **knitr**
@@ -194,16 +176,22 @@ $$\\[1.5in]$$
 
 ---
 # knitr 
-```{r}
+
+```r
 knitr::include_graphics("./images/knitr_package.PNG")
 ```
+
+&lt;img src="./images/knitr_package.PNG" width="951" /&gt;
 
 (from https://cran.r-project.org/web/packages/knitr/index.html)
 ---
 # knitr
-```{r, out.width = "90%"}
+
+```r
 knitr::include_graphics("./images/knitr_overview.PNG")
 ```
+
+&lt;img src="./images/knitr_overview.PNG" width="90%" /&gt;
 (from https://yihui.org/knitr/)
 
 ---
@@ -211,9 +199,7 @@ knitr::include_graphics("./images/knitr_overview.PNG")
 # Markdown
 
 
-```{r, echo = F}
-knitr::include_graphics("./images/markdown_introduction.PNG")
-```
+&lt;img src="./images/markdown_introduction.PNG" width="656" /&gt;
 
 (from https://daringfireball.net/projects/markdown/)
 
@@ -227,9 +213,7 @@ Markup is often used to control the display of the document. A markup language i
 
 # Markdown
 
-```{r, echo = F}
-knitr::include_graphics("./images/markdown_philosophy.PNG")
-```
+&lt;img src="./images/markdown_philosophy.PNG" width="633" /&gt;
 
 (from https://daringfireball.net/projects/markdown/syntax)
 
@@ -238,11 +222,9 @@ knitr::include_graphics("./images/markdown_philosophy.PNG")
 ---
 # Pandoc
 
-$$\\[1in]$$
+`$$\\[1in]$$`
 
-```{r, echo = F}
-knitr::include_graphics("./images/pandoc_overview.PNG")
-```
+&lt;img src="./images/pandoc_overview.PNG" width="1051" /&gt;
 (from https://pandoc.org/index.html)
 ---
 # Summary so far
@@ -260,19 +242,15 @@ R Markdown...
   
 * ... uses **Pandoc** to convert Markdown documents to many output formats
 
-$$\\[0.5in]$$
+`$$\\[0.5in]$$`
 
-```{r, echo = F}
-knitr::include_graphics("./images/RMarkdown_nutshell.PNG")
-```
+&lt;img src="./images/RMarkdown_nutshell.PNG" width="1505" /&gt;
 
 (from https://bookdown.org/yihui/rmarkdown/)
 
 ---
 
-```{r, echo = FALSE, out.width = "100%", fig.align = "center"}
-knitr::include_graphics("images/final_output_diagram.png")
-```
+&lt;img src="images/final_output_diagram.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -287,7 +265,7 @@ background-size: contain
 
 ???
 
-The 2017 Employer Health Benefits Survey was designed and analyzed by the Kaiser Family Foundation, NORC at the University of Chicago, and Health Research & Educational Trust. The full PDF report was written in R Markdown (with the bookdown package)
+The 2017 Employer Health Benefits Survey was designed and analyzed by the Kaiser Family Foundation, NORC at the University of Chicago, and Health Research &amp; Educational Trust. The full PDF report was written in R Markdown (with the bookdown package)
 
 ---
 background-image: url("images/OceanHealthWebsite.PNG")
@@ -315,44 +293,32 @@ You will need R and R Studio.
 # Creating an R Markdown Document
 
 .pull-left[
-```{r, echo = FALSE}
-knitr::include_graphics("images/new_Rmd_doc.PNG")
-```
+&lt;img src="images/new_Rmd_doc.PNG" width="816" /&gt;
 ]
 .pull-right[
-```{r, echo = FALSE}
-knitr::include_graphics("images/new_Rmd_doc2.PNG")
-```
+&lt;img src="images/new_Rmd_doc2.PNG" width="713" /&gt;
 ]
 
 ---
 # An R Markdown Document
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/Rmd_intro.PNG")
-```
+&lt;img src="images/Rmd_intro.PNG" width="2309" /&gt;
 
 
 ---
 # Knit
 
 .pull-left[
-```{r, echo = FALSE}
-knitr::include_graphics("images/knit.PNG")
-```
+&lt;img src="images/knit.PNG" width="777" /&gt;
 ]
 .pull-right[
-```{r, echo = FALSE}
-knitr::include_graphics("images/knitoutput.PNG")
-```
+&lt;img src="images/knitoutput.PNG" width="1537" /&gt;
 ]
 
 ---
 # Important tip: use cheatsheets!
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/cheatsheet_location.png")
-```
+&lt;img src="images/cheatsheet_location.png" width="916" /&gt;
 ---
 background-image: url("images/cheatsheet_big.PNG")
 background-size: contain
@@ -383,7 +349,7 @@ background-size: contain
 ---
 # Metadata: YAML
 
-<big>YAML (YAML Ain't Markup Language)
+&lt;big&gt;YAML (YAML Ain't Markup Language)
 
 .pull-left[ Code:
 ![](./images/YAML_example.PNG) ]
@@ -466,9 +432,7 @@ background-size: contain
 ## Another tab
 ```
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/tabsets1.png")
-```
+&lt;img src="images/tabsets1.png" width="2320" /&gt;
 ---
 
 
@@ -514,7 +478,7 @@ To check you can use `knitr::is_html_output()` or `knitr::is_latex_output()`.
 
 ---
 # Warning!
-$$\\[1 in]$$
+`$$\\[1 in]$$`
 .large[Always consider **transferability**.
 
 A single source document can create documents with multiple formats.
@@ -534,9 +498,7 @@ Tailoring to a single output format (like html or pdf) may be at the expense of 
 ---
 # Code: chunks
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/code_chunks.png")
-```
+&lt;img src="images/code_chunks.png" width="1353" /&gt;
 **Shortcut**: Ctrl + Alt + I (OS X: Cmd + Option + I)
 
 ???
@@ -547,13 +509,9 @@ knitr::include_graphics("images/code_chunks.png")
 ---
 # Chunks
 
-```{r, echo = FALSE, out.width = "30%", fig.align = "center"}
-knitr::include_graphics("images/chunks.png")
-```
+&lt;img src="images/chunks.png" width="30%" style="display: block; margin: auto;" /&gt;
 
-```{r, echo = FALSE, out.width = "75%", fig.align = "center"}
-knitr::include_graphics("images/chunks_output.png")
-```
+&lt;img src="images/chunks_output.png" width="75%" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -565,9 +523,7 @@ knitr::include_graphics("images/chunks_output.png")
 ---
 # Chunk options
 
-```{r, out.width = "70%", echo = FALSE, fig.align = "center"}
-knitr::include_graphics("images/chunk_options.png")
-```
+&lt;img src="images/chunk_options.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Setting Global Options
@@ -587,11 +543,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ---
 # Chunk options RStudio shortcut
-$$\\[1.5in]$$
+`$$\\[1.5in]$$`
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/chunk_shortcut.png")
-```
+&lt;img src="images/chunk_shortcut.png" width="2548" /&gt;
 
 
 
@@ -601,9 +555,7 @@ knitr::include_graphics("images/chunk_shortcut.png")
 
 Organize lengthy documents using `child`:
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/child.PNG")
-```
+&lt;img src="images/child.PNG" width="1559" /&gt;
 
 
 More information here: https://bookdown.org/yihui/rmarkdown-cookbook/child-document.html
@@ -617,10 +569,21 @@ More information here: https://bookdown.org/yihui/rmarkdown-cookbook/child-docum
 
 Place this function in an **R chunk** to render a table programatically:
 
-```{r}
+
+```r
 my_data_frame = data.frame(A = 1:5, B = 6:10)
 knitr::kable(my_data_frame) # makes a table
 ```
+
+
+
+|  A|  B|
+|--:|--:|
+|  1|  6|
+|  2|  7|
+|  3|  8|
+|  4|  9|
+|  5| 10|
 
 
 ---
@@ -628,34 +591,25 @@ knitr::kable(my_data_frame) # makes a table
 
 If you are generating a table using data in R, `knitr::kable` can be used in the console to print LaTeX code for that table!
 
-```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
-knitr::include_graphics("./images/kable_trick.PNG")
-```
+&lt;img src="./images/kable_trick.PNG" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Inline Code
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/inline_code.png")
-```
+&lt;img src="images/inline_code.png" width="943" /&gt;
 
 ---
 # Other Languages (Python, C++, etc)
 
 Other programming languages than R can be run:
 
-```{r, echo = FALSE, out.width = "80%"}
-knitr::include_graphics("images/python.PNG")
-knitr::include_graphics("images/python_output.PNG")
-```
+&lt;img src="images/python.PNG" width="80%" /&gt;&lt;img src="images/python_output.PNG" width="80%" /&gt;
 
 ---
 A list of supported languages can be obtained using `knitr::knit_engines()`:
 
-```{r, echo = FALSE, out.width = "40%", fig.align = "center" }
-knitr::include_graphics("images/languages.PNG")
-```
+&lt;img src="images/languages.PNG" width="40%" style="display: block; margin: auto;" /&gt;
 
 ???
 
@@ -773,9 +727,7 @@ To cite an entry, use `@key` or `[@key]`.
 
 To change **style**, an additional line should be included:
 
-```{r, echo = FALSE}
-knitr::include_graphics("images/citestyle.PNG")
-```
+&lt;img src="images/citestyle.PNG" width="1527" /&gt;
 
 Here `csl` stands for "Citation Style Language".
 
@@ -820,9 +772,7 @@ knitr::kable(data.frame(a = 1:3, b = 4:6))
 `````
 ]
 .pull-right[
-```{r, echo = FALSE}
-knitr::include_graphics("images/section_reference.PNG")
-```
+&lt;img src="images/section_reference.PNG" width="979" /&gt;
   
 ]
 
@@ -837,9 +787,9 @@ Assign labels using `(\#eq:label)` and reference using `\@ref(label)`. For insta
   (\#eq:binom)
 \end{equation} 
 ````
-$$\begin{equation} 
+`$$\begin{equation} 
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-\end{equation}$$
+\end{equation}$$`
 
 can be referenced using `\@ref(eq:binom)`.  
 
@@ -864,20 +814,21 @@ The **rticles** package is designed to simplify the creation of documents that c
 
 This package provides **templates** like this one:
 
-```{r, echo = FALSE, out.width = "50%", fig.align = "center"}
-knitr::include_graphics("images/rticles_template.png")
-```
+&lt;img src="images/rticles_template.png" width="50%" style="display: block; margin: auto;" /&gt;
 ---
 # List of Supported Journals
-```{r, echo = FALSE, out.width = "50%", fig.align = "center"}
 
-options(width = 300)
+
+&lt;center&gt;
+
+```r
+rticles::journals()
 ```
 
-<center>
-```{r, out.width = "50%"}
-
-rticles::journals()
+```
+##  [1] "acm"            "acs"            "aea"            "agu"            "ajs"            "amq"            "ams"            "arxiv"          "asa"            "bioinformatics" "biometrics"     "copernicus"     "ctex"           "elsevier"       "frontiers"      "glossa"         "ieee"          
+## [18] "ims"            "jasa"           "jedm"           "joss"           "jss"            "lipics"         "mdpi"           "mnras"          "oup_v0"         "oup_v1"         "peerj"          "pihph"          "plos"           "pnas"           "rjournal"       "rsos"           "rss"           
+## [35] "sage"           "sim"            "springer"       "tf"             "trb"            "wellcomeor"
 ```
 
 ???
@@ -890,14 +841,10 @@ rticles::journals()
 # Using Templates
 
 .pull-left[
-```{r, echo = FALSE, out.width = "50%"}
-knitr::include_graphics("images/rticles_template_navigate1.PNG")
-```
+&lt;img src="images/rticles_template_navigate1.PNG" width="50%" /&gt;
 ]
 .pull-right[
-```{r, echo = FALSE, out.width = "100%"}
-knitr::include_graphics("images/rticles_template_navigate2.PNG")
-```
+&lt;img src="images/rticles_template_navigate2.PNG" width="100%" /&gt;
 ]
 
 
@@ -906,9 +853,7 @@ knitr::include_graphics("images/rticles_template_navigate2.PNG")
 ---
 # Example: JSS
 
-```{r, echo = FALSE, out.width = "70%"}
-knitr::include_graphics("images/JSS_template.png")
-```
+&lt;img src="images/JSS_template.png" width="70%" /&gt;
 
 ---
 class: inverse, middle, center
@@ -937,9 +882,7 @@ By Hadley Wickham and Jenny Bryan
 Use `browseVignettes(package name)` to see vignettes for a package. Here is an example from dplyr:
 
 
-```{r, echo = FALSE, out.width = "50%", fig.align = "center"}
-knitr::include_graphics("images/dplyr_vignette.png")
-```
+&lt;img src="images/dplyr_vignette.png" width="50%" style="display: block; margin: auto;" /&gt;
 ---
 class: inverse, middle, center
 
@@ -949,9 +892,7 @@ class: inverse, middle, center
 ---
 # Presentations
 
-```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
-knitr::include_graphics("images/new_presentation.PNG")
-```
+&lt;img src="images/new_presentation.PNG" width="70%" style="display: block; margin: auto;" /&gt;
 ---
 # What's the difference?
 
@@ -1080,3 +1021,108 @@ class: inverse, center, middle
 class: inverse, center, middle
 
 # Thank you!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
