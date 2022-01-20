@@ -90,6 +90,7 @@ background-size: contain
 
 The Art of Computer Programming
 TeX
+Leslie Lamport
 
 ---
 
@@ -309,7 +310,15 @@ class: inverse, center, middle
 
 # Introduction to R Markdown 
 
-You will need R and R Studio.
+You will want R and R Studio.
+
+---
+# Installation
+
+You will want to install the **rmarkdown** package in R using `install.packages('rmarkdown')` in R.
+
+If you want to generate PDF output, you will need to install LaTeX. One recommendation is to install **TinyTeX** using `install.packages('tinytex')`.
+
 
 ---
 # Creating an R Markdown Document
@@ -808,8 +817,8 @@ You can most easily reference **chunks** and **sections**.
 
 **Syntax:** 
 
-* Figure `\@ref(fig:chunk-name))`
-* Table `\@ref(tab:chunk-name))` 
+* Figure `\@ref(fig:chunk-name)`
+* Table `\@ref(tab:chunk-name)` 
 * Section `\@ref(slug)`
 
 .pull-left[

@@ -98,6 +98,7 @@ background-size: contain
 
 The Art of Computer Programming
 TeX
+Leslie Lamport
 
 ---
 
@@ -112,8 +113,8 @@ TeX
 
 --
 
-<div id="htmlwidget-18174d3e54428d5be320" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-18174d3e54428d5be320">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"Literate Program\"]\n      tab2 [label = \"Documentation\"]\n      tab3 [label = \"Source Code\"]\n\n\n      # edge definitions with the node IDs\n      tab1 -> tab2\n      tab1 -> tab3\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-048c689c848c6a394d78" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-048c689c848c6a394d78">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"Literate Program\"]\n      tab2 [label = \"Documentation\"]\n      tab3 [label = \"Source Code\"]\n\n\n      # edge definitions with the node IDs\n      tab1 -> tab2\n      tab1 -> tab3\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 
 
@@ -287,7 +288,15 @@ class: inverse, center, middle
 
 # Introduction to R Markdown 
 
-You will need R and R Studio.
+You will want R and R Studio.
+
+---
+# Installation
+
+You will want to install the **rmarkdown** package in R using `install.packages('rmarkdown')` in R.
+
+If you want to generate PDF output, you will need to install LaTeX. One recommendation is to install **TinyTeX** using `install.packages('tinytex')`.
+
 
 ---
 # Creating an R Markdown Document
@@ -760,8 +769,8 @@ You can most easily reference **chunks** and **sections**.
 
 **Syntax:** 
 
-* Figure `\@ref(fig:chunk-name))`
-* Table `\@ref(tab:chunk-name))` 
+* Figure `\@ref(fig:chunk-name)`
+* Table `\@ref(tab:chunk-name)` 
 * Section `\@ref(slug)`
 
 .pull-left[
